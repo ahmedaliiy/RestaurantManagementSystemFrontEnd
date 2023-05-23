@@ -1,0 +1,29 @@
+<h2>Resturants List</h2>
+
+<div *ngIf="resturants.length === 0">
+  <p>No Resturants found.</p>
+</div>
+
+<table *ngIf="resturants.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let resturant of resturants">
+      <td>{{ resturant.id }}</td>
+      <td>{{ resturant.name }}</td>
+      <td>{{ resturant.address }}</td>
+      <td>{{ resturant.contactNumber }}</td>
+      <td>
+        <button (click)="editResturant(resturant.id)">Edit</button>
+        <button (click)="deleteResturant(resturant.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
